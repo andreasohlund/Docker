@@ -1,0 +1,9 @@
+name: oracle
+services:
+    db:
+      image: "gvenzl/oracle-free:23-slim"    
+      restart: always
+      ports:
+        - 1521:1521
+      environment: 
+        - ORACLE_PASSWORD=Welcome1
