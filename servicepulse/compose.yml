@@ -1,0 +1,12 @@
+name: servicepulse
+
+services:
+  servicepulse:
+    image: particular/servicepulse:${SERVICEPULSE_TAG}
+    ports:
+      - "9090:9090"
+    environment:
+      SERVICECONTROL_URL: http://localhost:33333
+      MONITORING_URL: http://localhost:33633
+      ENABLE_REVERSE_PROXY: false
+    restart: unless-stopped
