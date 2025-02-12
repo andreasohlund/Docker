@@ -1,4 +1,4 @@
-name: service-platform-rabbitmq
+name: service-platform-asb
 
 services:
   servicecontrol:
