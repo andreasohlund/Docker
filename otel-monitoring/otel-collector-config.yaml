@@ -3,6 +3,8 @@ receivers:
     protocols:
       grpc:
         endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
 processors:
 extensions:
   health_check: {}
@@ -19,8 +21,8 @@ exporters:
     verbosity: detailed
     sampling_initial: 5
     sampling_thereafter: 200
-  azuremonitor:
-    connection_string: "InstrumentationKey=b3a59738-2e0c-4897-be2e-7d3425615574;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/;ApplicationId=47e921f6-c347-44e9-a5e7-ff3811d9a438"
+  #azuremonitor:
+  #   connection_string: ${env:AZURE_MONITOR_CONNECTION_STRING}
   prometheus:
     endpoint: "0.0.0.0:9090"
 service:
@@ -30,4 +32,4 @@ service:
       exporters: [otlp]
     metrics:
       receivers: [otlp]
-      exporters: [prometheus, debug, azuremonitor]
+      exporters: [prometheus, debug]
