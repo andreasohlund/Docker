@@ -22,12 +22,8 @@ services:
     environment:
       RAVEN_Monitoring_OpenTelemetry_Enabled: true
       RAVEN_Monitoring_OpenTelemetry_OpenTelemetryProtocol_Enabled: true
-      RAVEN_Monitoring_OpenTelemetry_OpenTelemetryProtocol_Protocol: HttpProtobuf
-      RAVEN_Monitoring_OpenTelemetry_Meters_Server_Storage_Enabled: true
-      RAVEN_Monitoring_OpenTelemetry_Meters_Server_Resources_Enabled: true
-      RAVEN_Monitoring_OpenTelemetry_OpenTelemetryProtocol_Endpoint: http://host.docker.internal:4318/v1/metrics
-      RAVEN_Monitoring_OpenTelemetry.ConsoleExporter: true
-      RAVEN_Monitoring_OpenTelemetry_Meters_Runtime_Enabled: true
+      RAVEN_Monitoring_OpenTelemetry_OpenTelemetryProtocol_Protocol: gRPC
+      RAVEN_Monitoring_OpenTelemetry_OpenTelemetryProtocol_Endpoint: http://host.docker.internal:4317
     volumes:
       - raven-config:/var/lib/ravendb/config
       - raven-data:/var/lib/ravendb/data
